@@ -9,7 +9,7 @@ grant connect,resource to airlogics;
 se crea un usuario y contraseña de la empresa
 luego hacer la conexion con el mismo nombre airlogics
 
-#####Instalar en maven
+##### Instalar en maven
  Entrar en carpeta objdc ejecutar el siguiente comando.
 ``
 mvn install:install-file -Dfile=ojdbc7.jar -DgroupId=com.oracle 
