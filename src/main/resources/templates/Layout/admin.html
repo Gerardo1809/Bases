@@ -39,9 +39,8 @@
 					<li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
 							class="fa fa-sign-out fa-lg"></i> Logout</a>
 							
-							<form th:action="@{/logout}" method="post" style="display:none" id="logout-form">
-							</form>
-							</li>
+							<form th:action="@{/logout}" method="post" style="display: none"
+							id="logout-form"></form></li>
 				</ul></li>
 		</ul>
 	</header>
@@ -62,7 +61,7 @@
 					class="app-menu__icon fa fa-dashboard"></i><span
 					class="app-menu__label">Dashboard</span></a></li>
 			</li>
-			<li><a class="app-menu__item active" href="#"><i
+			<li><a class="app-menu__item active"  th:href="@{/listarRoles}"><i
 					class="app-menu__icon fa fa-dashboard"></i><span
 					class="app-menu__label">Gestión de Roles</span></a></li>
 			</li>
@@ -73,16 +72,16 @@
 		</ul>
 	</aside>
 	<main class="app-content">
-	<div class="app-title">
+	<div class="app-title" th:fragment="app_title">
 		<div>
-			<h1>
-				<i class="fa fa-dashboard"></i> Blank Page
+			<h1 th:text="${titulo}">
+				<i class="fa fa-dashboard"></i> 
 			</h1>
-			<p>Start a beautiful journey here</p>
+			<p th:text="'AirLogics ' + ${comentario}"></p>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
+			<li class="breadcrumb-item"><a th:href="@{/menu}">Menu</a></li>
 		</ul>
 	</div>
 	<div class="row">

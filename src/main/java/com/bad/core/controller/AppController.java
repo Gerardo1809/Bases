@@ -22,6 +22,7 @@ public class AppController {
 	@GetMapping("/menu")
 	public String menu(Model model) {
 		model.addAttribute("titulo", "Menu");
+		model.addAttribute("comentario","Bienvenido a su cuenta");
 		return "menu";
 	}
 	
