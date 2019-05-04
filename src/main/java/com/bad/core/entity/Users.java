@@ -23,6 +23,15 @@ public class Users {
 
 	@Column
 	private String username;
+	
+	@Column
+	private String nombres;
+	
+	@Column
+	private String apellidos;
+	
+	@Column
+	private String correo;
 
 	@Column
 	private String password;
@@ -63,7 +72,7 @@ public class Users {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", username=" + username + ", password=" + password + "]";
+		return "Usuario [id=" + id + ", Rol =" + username + ", apellidos=" + apellidos + ", nombres =" + nombres + ", correo=" + correo + ", password=" + password + "]";
 	}
 
 	public Long getId() {
@@ -73,13 +82,37 @@ public class Users {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public String getUsername() {
 		return username;
 	}
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getNombres() {
+		return nombres;
+	}
+
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 	public String getPassword() {
