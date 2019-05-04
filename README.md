@@ -1,4 +1,4 @@
-
+﻿
 # Airlogics 
 ### Indicaciones (Seguir el orden)
 ##### Crear en oracle 
@@ -12,8 +12,7 @@ luego hacer la conexion con el mismo nombre airlogics
 ##### Instalar en maven
  Entrar en carpeta objdc ejecutar el siguiente comando.
 ``
-mvn install:install-file -Dfile=ojdbc7.jar -DgroupId=com.oracle 
--DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar
+mvn install:install-file -Dfile=ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar
 ``
 El anterior comando instalara el conecto de oracle-xe de manera local.
 

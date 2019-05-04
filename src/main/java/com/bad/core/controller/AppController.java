@@ -1,14 +1,22 @@
 package com.bad.core.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AppController {
 
-	@GetMapping({"/","/login"})
-	public String index() {
+	@GetMapping("/")
+	public String index(Model model) {
+		model.addAttribute("titulo", "Home");
 		return "index";
+	}
+	
+	@GetMapping("/login")
+	public String login(Model model) {
+		model.addAttribute("titulo", "Inicio de Sesión");
+		return "login";
 	}
 	
 	@GetMapping("/menu")
