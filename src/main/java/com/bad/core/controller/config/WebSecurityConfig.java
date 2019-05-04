@@ -19,6 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     //Como los css, imagenes y javascripts
     String[] resources = new String[]{
             "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**","/vendors/**",
+            "/admin/**"
     };
 	
     @Override

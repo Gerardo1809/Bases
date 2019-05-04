@@ -20,7 +20,8 @@ public class AppController {
 	}
 	
 	@GetMapping("/menu")
-	public String menu() {
+	public String menu(Model model) {
+		model.addAttribute("titulo", "Menu");
 		return "menu";
 	}
 	
