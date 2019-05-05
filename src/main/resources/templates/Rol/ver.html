@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="Layout/admin :: head">
+</head>
+<body class="app sidebar-mini rtl">
+	<!-- Navbar-->
+	<header th:replace="Layout/admin :: header">
+		
+	</header>
+	<!-- Sidebar menu-->
+	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+	<aside th:replace="Layout/admin :: aside">
+		
+	</aside>
+	<main class="app-content">
+	<div class="app-title"   th:replace="Layout/admin :: app_title">
+		
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+            <div class="tile-body">
+            <ul class="list-group">
+            <li class="list-group-item active" th:text="${rol.authority}"></li>
+            <li class="list-group-item " th:text="${rol.id}"></li>
+            <li class="list-group-item" th:text="${rol.description}"></li>
+            <li class="list-group-item " th:text="${rol.estado}"></li>
+            </ul>
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre del Permiso</th>
+                    <th>Actividades</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="privilege: ${privilegios}">
+                    <td th:text="${privilege.id}"></td> 
+                   <td th:text="${privilege.name}"></td>
+                   
+                   
+                    <td ><button class="btn btn-outline-info" type="button" onclick="cargar(${privilege.id})">Asignar</button>
+                    <form action="@{/privilegio_habilitar/{id}" method="POST">
+                    	
+                    </form>
+                    </td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+		
+		</div>
+	</div>
+	</main>
+	<footer th:replace="Layout/admin :: footer">
+	</footer>
+	<script type="text/javascript">
+	const cargar=(id)=>{
+		document.getElementById("form-"+id).submit().
+		
+		
+	}
+	
+	</script>
+</body>
+</html>
