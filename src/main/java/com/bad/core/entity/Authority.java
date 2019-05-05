@@ -2,6 +2,7 @@ package com.bad.core.entity;
 
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,9 +29,9 @@ public class Authority {
 	 @ManyToMany
 	    @JoinTable(
 	        name = "authorities_privileges", 
-	        joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"), 
+	        joinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"), 
 	        inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "id"))
-	    private Collection<Privilege> privileges;   
+	    private List<Privilege> privileges;   
 	
 	public String getAuthority() {
 		return authority;
@@ -64,11 +65,11 @@ public class Authority {
 		this.estado = estado;
 	}
 
-	public Collection<Privilege> getPrivileges() {
+	public List<Privilege> getPrivileges() {
 		return privileges;
 	}
 
-	public void setPrivileges(Collection<Privilege> privileges) {
+	public void setPrivileges(List<Privilege> privileges) {
 		this.privileges = privileges;
 	}
 	

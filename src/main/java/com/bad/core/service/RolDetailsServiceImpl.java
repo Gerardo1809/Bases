@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bad.core.entity.Authority;
+import com.bad.core.entity.Privilege;
 import com.bad.core.repository.RolRepository;
-
 @Service
-public class RolDeailsServiceImpl implements RolRepository {
+public class RolDetailsServiceImpl implements RolRepository {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -22,5 +22,19 @@ public class RolDeailsServiceImpl implements RolRepository {
 	public List<Authority> findAll() {
 		return em.createQuery("from Authority").getResultList() ;
 	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public Authority findOne(Long id) {
+		return em.find(Authority.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional(readOnly=true)
+	public List<Privilege> findAllPrivilege() {
+		return em.createQuery("from Privilege").getResultList();
+	}
+	
 
 }
