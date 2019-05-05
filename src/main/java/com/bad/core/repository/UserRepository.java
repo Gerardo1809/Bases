@@ -8,7 +8,11 @@ import com.bad.core.entity.Users;
 import com.bad.core.entity.Authority;
 
 @Repository
-public interface UserRepository extends CrudRepository<Users, Long> {
+public interface UserRepository extends CrudRepository<Users, Long>{
 	public Optional<Users> findByUsername(String username);
+	
 	public List<Users> findAll();
+	
+	//public void save (Users user);
+	
 }
