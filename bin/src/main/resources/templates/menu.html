@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="Layout/admin :: head">
+</head>
+<body class="app sidebar-mini rtl">
+	<!-- Navbar-->
+	<header th:replace="Layout/admin :: header">
+		
+	</header>
+	<!-- Sidebar menu-->
+	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+	<aside th:replace="Layout/admin :: aside">
+		
+	</aside>
+	<main class="app-content">
+	<div class="app-title"  th:replace="Layout/admin :: app_title">
+		
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<h1 th:inline="text">Hello
+						[[${#httpServletRequest.remoteUser}]]!</h1>
+					<h1>
+					<a th:href="@{/admin}"> admin</a> | <a th:href="@{/user}">
+							user</a>
+					</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	<footer th:replace="Layout/admin :: footer">
+	</footer>
+</body>
+</html>
