@@ -22,24 +22,25 @@ public class UserController {
 	
     @RequestMapping(value="/listaUsers", method = RequestMethod.GET)
     public String listaUsuarios(ModelMap mp){
-    	mp.addAttribute("titulo", "Listado de Roles");
+    	mp.addAttribute("titulo", "Listado de Usuarios");
     	mp.addAttribute("comentario","Detalle de Usuarios ");
         mp.put("user", uc.findAll());
         return "/Users/lista";
     }
 	
-	@GetMapping("/listaUsers/nuevo")
+	@GetMapping(value ="/listaUsers/nuevo")
 	public String nuevo(Map<String, Object> model) {
 		Users user = new Users();
 		model.put("user", user);
 		model.put("titulo", "Formulario de Usuarios");
+		model.put("comentario", "Llene los datos");
 	    return "/Users/nuevo";
 	}
 	
 	@RequestMapping(value = "/listaUsers/nuevo", method = RequestMethod.POST)
 	public String guardar(Users user) {
 		uc.save(user);
-		return "redirect:/Users/lista";
+		return "redirect:/listaUsers";
 	}
 	
 }

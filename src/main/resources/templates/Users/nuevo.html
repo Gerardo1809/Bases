@@ -13,34 +13,40 @@
 	<div class="app-title" th:replace="Layout/admin :: app_title"></div>
 	<div>
 
-		<form th:action="@{/listaUsers/nuevo}" th:object="${user}">
-			<table>
+		<form th:action="@{/listaUsers/nuevo}" th:object="${user}"
+			method="post">	
+			<table>			
 				<tr>
-					<td>username</td>
-					<td><input type ="text" th:field="*{username}"/></td>
+					<td>Nombre de Usuario</td>
+					<td><input type="text" th:field="*{username}" /></td>
 				</tr>
 				<tr>
-					<td>nombres</td>
-					<td><input type ="text" th:field="*{nombres}"/></td>
+					<td>Password</td>
+					<td><input type="text" th:field="*{password}" /></td>
 				</tr>
 				<tr>
-					<td>apellidos</td>
-					<td><input type ="text" th:field="*{apellidos}"/></td>
+					<td>Nombres</td>
+					<td><input type="text" th:field="*{nombres}" /></td>
 				</tr>
 				<tr>
-					<td>correo</td>
-					<td><input type ="email" th:field="*{correo}"/></td>
+					<td>Apellidos</td>
+					<td><input type="text" th:field="*{apellidos}" /></td>
 				</tr>
 				<tr>
-					<td>enabled</td>
-					<td><input type ="boolean" th:field="*{enabled}"/></td>
+					<td>Correo</td>
+					<td><input type="email" th:field="*{correo}" /></td>
 				</tr>
+			
+<!-- 				<tr> -->
+<!-- 					<td>Activo</td> -->
+<!-- 					<td><input type="Number" min="0" max="1" th:field="*{enabled}" /></td> -->
+<!-- 				</tr> -->
+				
 				<tr>
-					<td><input type ="submit" value= "Crear Usuario"/></td>
+					<td><input type="submit" value="Crear Usuario" /></td>
 				</tr>
 
 			</table>
-			<input type="hidden" th:field ="*{id}" />
 		</form>
 
 	</div>

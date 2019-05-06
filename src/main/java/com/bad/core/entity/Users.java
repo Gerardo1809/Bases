@@ -16,31 +16,15 @@ import com.bad.core.entity.Authority;
 @Entity
 
 public class Users {
-	
-	public Users(Long id, String username, String nombres, String apellidos, String correo, String password,
-			boolean enabled, Set<Authority> authority) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.nombres = nombres;
-		this.apellidos = apellidos;
-		this.correo = correo;
-		this.password = password;
-		this.enabled = enabled;
-		this.authority = authority;
-	}
-
-	public Users() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Column
 	private String username;
+	
+	@Column
+	private String password;
 	
 	@Column
 	private String nombres;
@@ -51,8 +35,6 @@ public class Users {
 	@Column
 	private String correo;
 
-	@Column
-	private String password;
 
 	@Column
 	private boolean enabled;
@@ -60,7 +42,7 @@ public class Users {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "authorities_users", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
 	private Set<Authority> authority;
-
+	
 //Getters y Setters
 
 	@Override
