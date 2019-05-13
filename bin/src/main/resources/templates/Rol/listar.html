@@ -35,7 +35,7 @@
                     <td th:text="${rol.id}"></td>
                     <td th:text="${rol.authority}"></td>
                     <td th:text="${rol.description}"></td>
-                    <td><button class="btn btn-outline-info" type="button">Modificar Permisos</button>
+                    <td><a class="btn btn-outline-info" th:href="@{'/verRol/'+${rol.id}}">Permisos</a>
                     <button class="btn btn-outline-success" type="button">Habilitar Rol</button>
                     </td>
                   </tr>

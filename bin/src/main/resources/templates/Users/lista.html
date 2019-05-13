@@ -21,30 +21,30 @@
 		<div class="col-md-12">
 			<div class="tile">
             <div class="tile-body">
-            <ul class="list-group">
-            <li class="list-group-item active" th:text="${rol.authority}"></li>
-            <li class="list-group-item " th:text="${rol.id}"></li>
-            <li class="list-group-item" th:text="${rol.description}"></li>
-            <li class="list-group-item " th:text="${rol.estado}"></li>
-            </ul>
+            <a th:href="@{/listaUsers/nuevo}">Nuevo</a>
               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Nombre del Permiso</th>
-                    <th>Actividades</th>
+                    <th>Codigo</th>
+                    <th>Activo</th>
+                    <th>Usuario</th>
+                    <th>Password</th>
+                    <th>Apellidos</th>
+                    <th>Nombres</th>
+                    <th>Correo</th>
+                    <th >Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="privilege: ${privilegios}">
-                    <td th:text="${privilege.id}"></td> 
-                   <td th:text="${privilege.name}"></td>
-                   
-                   
-                    <td ><button class="btn btn-outline-info" type="button" onclick="cargar(${privilege.id})">Asignar</button>
-                    <form action="@{/privilegio_habilitar/{id}" method="POST">
-                    	
-                    </form>
+                  <tr th:each="users: ${user}">
+                    <td th:text="${users.id}"></td>
+                    <td th:text="${users.enabled}"></td>
+                    <td th:text="${users.username}"></td>
+                    <td th:text="${users.password}"></td>
+                    <td th:text="${users.apellidos}"></td>
+                    <td th:text="${users.nombres}"></td>
+                    <td th:text="${users.correo}"></td>
+                    <td><button class="btn btn-outline-info" type="button">Modificar Usuario</button>
                     </td>
                   </tr>
                  
@@ -58,13 +58,5 @@
 	</main>
 	<footer th:replace="Layout/admin :: footer">
 	</footer>
-	<script type="text/javascript">
-	const cargar=(id)=>{
-		document.getElementById("form-"+id).submit().
-		
-		
-	}
-	
-	</script>
 </body>
 </html>
