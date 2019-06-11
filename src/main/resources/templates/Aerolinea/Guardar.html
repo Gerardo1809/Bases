@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="Layout/admin :: head">
+</head>
+<body class="app sidebar-mini rtl">
+	<!-- Navbar-->
+	<header th:replace="Layout/admin :: header"> </header>
+	<!-- Sidebar menu-->
+	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+	<aside th:replace="Layout/admin :: aside"></aside>
+	<main class="app-content">
+	<div class="app-title" th:replace="Layout/admin :: app_title"></div>
+	<div>
+
+		<form th:action="@{/Guardar}" th:object="${aero}"
+			method="post">	
+			<table>			
+				<tr>
+					<td>Nombre de Usuario</td>
+					<td><input type="text" th:field="*{codigo}" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="text" th:field="*{idviajerofrecuente}" /></td>
+				</tr>
+				<tr>
+					<td>Nombres</td>
+					<td><input type="text" th:field="*{codigoaeropuerto}" /></td>
+				</tr>
+				<tr>
+					<td>Apellidos</td>
+					<td><input type="text" th:field="*{nombreoficial}" /></td>
+				</tr>
+				<tr>
+					<td>Correo</td>
+					<td><input type="email" th:field="*{abreviatura}" /></td>
+				</tr>
+			
+<!-- 				<tr> -->
+<!-- 					<td>Activo</td> -->
+<!-- 					<td><input type="Number" min="0" max="1" th:field="*{enabled}" /></td> -->
+<!-- 				</tr> -->
+				
+				<tr>
+					<td><input type="submit" value="Crear Aerolinea" /></td>
+				</tr>
+
+			</table>
+			<!-- 			<input type="hidden" th:field="*{id}" />	</tr> -->
+		</form>
+
+	</div>
+	</main>
+	<footer th:replace="Layout/admin :: footer"> </footer>
+</body>
+</html>

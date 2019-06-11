@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="Layout/admin :: head">
+</head>
+<body class="app sidebar-mini rtl">
+	<!-- Navbar-->
+	<header th:replace="Layout/admin :: header">
+		
+	</header>
+	<!-- Sidebar menu-->
+	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+	<aside th:replace="Layout/admin :: aside">
+		
+	</aside>
+	<main class="app-content">
+	<div class="app-title"   th:replace="Layout/admin :: app_title">
+		
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+            <div class="tile-body">
+            
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead>
+                  <tr>
+                    <th>IDUSER               </th>
+                    <th>ESTADOCIVIL</th>
+                    <th>TELEFONOMOVIL</th>
+                    <th>TELEFONOFIJO</th>
+                    <th>NOMBREEMPRESA</th>
+                    <th>DIRECCION</th>
+                    
+                    <th >Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="cliente: ${clientes}">
+                    
+                    <td th:text="${cliente.user.id}"></td>
+                    <td th:text="${cliente.estadocivil}"></td>
+                    <td th:text="${cliente.telefonomovil}"></td>
+                    <td th:text="${cliente.telefonofijo}"></td>
+                    <td th:text="${cliente.nombreempresa}"></td>
+                    <td th:text="${cliente.direccion}"></td>
+                    
+                    <td><button class="btn btn-outline-info" type="button">Modificar cliente</button>
+                    </td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+		
+		</div>
+	</div>
+	</main>
+	<footer th:replace="Layout/admin :: footer">
+	</footer>
+</body>
+</html>

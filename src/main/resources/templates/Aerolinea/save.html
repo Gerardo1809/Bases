@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="Layout/admin :: head">
+</head>
+<body class="app sidebar-mini rtl">
+	<!-- Navbar-->
+	<header th:replace="Layout/admin :: header"> </header>
+	<!-- Sidebar menu-->
+	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+	<aside th:replace="Layout/admin :: aside"></aside>
+	<main class="app-content">
+	<div class="app-title" th:replace="Layout/admin :: app_title"></div>
+	<div>
+
+		<form th:action="@{/guarda}" th:object="${aero}"
+			method="post">	
+			<table>			
+				
+				<tr>
+					<td>Nombre de la aerolinea</td>
+					<td><input type="text" th:field="*{nombreoficial}" /></td>
+				</tr>
+				<tr>
+					<td>Abreviatura</td>
+					<td><input type="text" th:field="*{abreviatura}" /></td>
+				</tr>
+				<tr>
+					<td>Pais de origen</td>
+					<td><input type="text" th:field="*{paisorigen}" /></td>
+				</tr>
+				<tr>
+					<td>Representante</td>
+					<td><input type="text" th:field="*{representante}" /></td>
+				</tr>
+				<tr>
+					<td>Cuenta de Facebook</td>
+					<td><input type="text" th:field="*{facebook}" /></td>
+				</tr>
+				<tr>
+					<td>Cuenta de Twitter</td>
+					<td><input type="email" th:field="*{twitter}" /></td>
+				</tr>
+				<tr>
+					<td>Correo Electronico</td>
+					<td><input type="text" th:field="*{correoelectronico}" /></td>
+				</tr>
+				<tr>
+					<td>Fecha de Fundacion</td>
+					<td><input type="text" th:field="*{fundacion}" /></td>
+				</tr>
+			
+<!-- 				<tr> -->
+<!-- 					<td>Activo</td> -->
+<!-- 					<td></td> -->
+<!-- 				</tr> -->
+				
+				<tr>
+					<td><input type="submit" value="Crear Aerolinea" /></td>
+				</tr>
+
+			</table>
+			<			<input type="hidden" th:field="*{codigo}" />	</tr> 
+		</form>
+
+	</div>
+	</main>
+	<footer th:replace="Layout/admin :: footer"> </footer>
+</body>
+</html>

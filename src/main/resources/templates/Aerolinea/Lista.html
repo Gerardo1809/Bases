@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="Layout/admin :: head">
+</head>
+<body class="app sidebar-mini rtl">
+	<!-- Navbar-->
+	<header th:replace="Layout/admin :: header">
+		
+	</header>
+	<!-- Sidebar menu-->
+	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+	<aside th:replace="Layout/admin :: aside">
+		
+	</aside>
+	<main class="app-content">
+	<div class="app-title"   th:replace="Layout/admin :: app_title">
+		
+	</div>
+	<a th:href="@{/guarda/0}" class="btn btn-primary">Agregar</a>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+            <div class="tile-body">
+            
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead>
+                  <tr>
+                    <th>Nombre Aerolinea              </th>
+                    <th>Abreviatura</th>
+                    <th>Pais de Origen</th>
+                    <th>Representante</th>
+                    <th>Facebook</th>
+                    <th>Twitter</th>
+                    <th>Correo Electronico</th>
+                    <th >Fundacion</th>
+                    <th >Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="ae: ${aero}">
+                    
+                    <td th:text="${ae.nombreoficial}"></td>
+                    <td th:text="${ae.abreviatura}"></td>
+                    <td th:text="${ae.paisorigen}"></td>
+                    <td th:text="${ae.representante}"></td>
+                    <td th:text="${ae.facebook}"></td>
+                    <td th:text="${ae.twitter}"></td>
+                    <td th:text="${ae.correoelectronico}"></td>
+                    <td th:text="${ae.fundacion}"></td>
+                    
+                    <td><a th:href="@{/guarda/{codigo}(codigo=${ae.codigo})}" class="btn btn-outline-info" type="button">Modificar cliente</a>
+                    </td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+		
+		</div>
+	</div>
+	</main>
+	<footer th:replace="Layout/admin :: footer">
+	</footer>
+</body>
+</html>
